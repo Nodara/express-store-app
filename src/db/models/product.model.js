@@ -21,7 +21,6 @@ class Product extends Model {
       tableName: 'products'
     });
   }
-
 }
 
 module.exports = Product;

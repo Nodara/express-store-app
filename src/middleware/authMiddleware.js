@@ -1,19 +1,24 @@
 const process = require('process');
 const jwt = require('jsonwebtoken');
 
+
 const checkAuth = (req, res, next) => {
-  const token = req.headers.authorization.split(' ')[1];
+  try {
+    const token = req.headers.authorization.split(' ')[1];
 
-  jwt.verify(
-    token,
-    process.env.SECRET,
-    (error) => {
-      if (error) {
-        return res.json({ message: 'Unauthorized' });
-      }
-    });
+    const { userId } = jwt.verify(
+      token,
+      process.env.SECRET,);
 
-  return next();
+    req.user = {
+      userId
+    };
+
+    return next();
+  } catch (e) {
+    console.log(e);
+    return res.status(401).json({ message: 'UNAUTHORIZED' });
+  }
 };
 
 module.exports = checkAuth;

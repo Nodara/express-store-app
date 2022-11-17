@@ -7,15 +7,12 @@ class Region extends Model {
         type: DataTypes.STRING(30),
         allowNull: false
       },
-      deletedAt: {
-        type: DataTypes.TIME,
-        allowNull: true,
-      }
     }, {
       sequelize: connection,
       tableName: 'regions',
-      timestamps: true
+      timestamps: false,
     });
+
   }
 }
 
