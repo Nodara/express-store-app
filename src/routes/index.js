@@ -17,5 +17,6 @@ router.use('/products', ProductRoutes);
 router.use('/users', UserRoutes);
 router.use('/stores', StoreRoutes);
 router.use('/regions', RegionRoutes);
+router.use('/test', (req, res,) => res.sendStatus(200));
 
 module.exports = router;

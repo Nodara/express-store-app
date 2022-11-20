@@ -15,8 +15,6 @@ const deleteProductById = async ({ productId, userId }) => {
 
   const store = await Store.findByPk(product.storeId);
 
-
-
   const user = await User.findByPk(userId);
 
   if (!product || product.deletedAt !== null) {
@@ -24,7 +22,6 @@ const deleteProductById = async ({ productId, userId }) => {
       message: 'NOT_FOUND'
     };
   }
-
 
   if (store.userId !== userId || !user.isAdmin) {
     return {

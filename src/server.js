@@ -22,3 +22,5 @@ app.use('/api', routes);
 app.listen(port, () => {
   signale.success(`server listens to port ${port}`);
 });
+
+module.exports = app;

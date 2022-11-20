@@ -13,8 +13,6 @@ const deleteProduct = async (req, res) => {
   try {
     const { productId } = req.params;
 
-
-
     const message = await ProductService.deleteProductById({ productId, userId: req.user.userId });
 
     return res.json(message);

@@ -16,8 +16,10 @@ const checkAuth = (req, res, next) => {
 
     return next();
   } catch (e) {
-    console.log(e);
-    return res.status(401).json({ message: 'UNAUTHORIZED' });
+    // console.log(e);
+    return res
+      .status(401)
+      .json({ message: 'UNAUTHORIZED' });
   }
 };
 
